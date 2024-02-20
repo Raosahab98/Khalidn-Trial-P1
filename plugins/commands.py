@@ -25,7 +25,7 @@ async def start(client, message):
         buttons = [[
                     InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
-                    InlineKeyboardButton('👻 ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ', url="https://t.me/bots_up"),
+                    InlineKeyboardButton('👻 ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ', url="https://t.me/Movieshubfree4You"),
                     InlineKeyboardButton('🫨 ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ', url=GRP_LNK)
                 ],[
                     InlineKeyboardButton('🔻 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ 🔻', url=CHNL_LNK)
@@ -153,7 +153,7 @@ async def start(client, message):
                           InlineKeyboardButton('⛔️ ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ ⛔️', url=f'https://t.me/{SUPPORT_CHAT}'),
                           InlineKeyboardButton('🫨ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK)
                        ],[
-                          InlineKeyboardButton("😇ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ😇", url="https://t.me/bots_up")
+                          InlineKeyboardButton("😇ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ😇", url="https://t.me/+9NJBWRn9BLliNjcy")
                          ]
                         ]
                     )
@@ -172,7 +172,7 @@ async def start(client, message):
                           InlineKeyboardButton('🫨ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
                           InlineKeyboardButton('ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK)
                        ],[
-                          InlineKeyboardButton("😇ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ😇", url="https://t.me/bots_up")
+                          InlineKeyboardButton("😇ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ😇", url="https://t.me/+9NJBWRn9BLliNjcy")
                          ]
                         ]
                     )
@@ -320,7 +320,7 @@ async def start(client, message):
                     InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
                 ]]
                 await message.reply_text(
-                    text="Yᴏᴜ Aʀᴇ Nᴏᴛ Vᴇʀɪғɪᴇᴅ Tᴏᴅᴀʏ. Pʟᴇᴀsᴇ Vᴇʀɪғʏ Aɴᴅ Gᴇᴛ Uɴʟɪᴍɪᴛᴇᴅ ᴀᴄᴄᴇss Fᴏʀ 24 hours.\n\nइस बोट को इस्तमाल करने के लिए आपको 24 घंटे में एक बार ᴠᴇʀɪғʏ करना होगा। Vᴇʀɪғʏ किए बिना आप मूवीज को डाउनलोड नहीं कर पाएंगें।\n\n<a href=https://t.me/bots_up/76>👉𝗛𝗼𝘄 𝗧𝗼 𝗩𝗲𝗿𝗶𝗳𝘆👈\n\n\n\n</a>",
+                    text="Yᴏᴜ Aʀᴇ Nᴏᴛ Vᴇʀɪғɪᴇᴅ Tᴏᴅᴀʏ. Pʟᴇᴀsᴇ Vᴇʀɪғʏ Aɴᴅ Gᴇᴛ Uɴʟɪᴍɪᴛᴇᴅ ᴀᴄᴄᴇss Fᴏʀ 24 hours.\n\nइस बोट को इस्तमाल करने के लिए आपको 24 घंटे में एक बार ᴠᴇʀɪғʏ करना होगा। Vᴇʀɪғʏ किए बिना आप मूवीज को डाउनलोड नहीं कर पाएंगें।\n\n<a href=https://t.me/A2BTutorial>👉𝗛𝗼𝘄 𝗧𝗼 𝗩𝗲𝗿𝗶𝗳𝘆👈\n\n\n\n</a>",
                     protect_content=True,
                     reply_markup=InlineKeyboardMarkup(btn)
                 )
@@ -336,7 +336,7 @@ async def start(client, message):
                       InlineKeyboardButton('🫨ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
                       InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
                    ],[
-                      InlineKeyboardButton("ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ", url="https://t.me/bots_up")
+                      InlineKeyboardButton("ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ", url="https://t.me/+9NJBWRn9BLliNjcy")
                      ]
                     ]
                 )
@@ -379,7 +379,7 @@ async def start(client, message):
                     InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
                 ]]
                 await message.reply_text(
-                    text="Yᴏᴜ Aʀᴇ Nᴏᴛ Vᴇʀɪғɪᴇᴅ Tᴏᴅᴀʏ. Pʟᴇᴀsᴇ Vᴇʀɪғʏ Aɴᴅ Gᴇᴛ Uɴʟɪᴍɪᴛᴇᴅ ᴀᴄᴄᴇss Fᴏʀ 24 hours.\n\nइस बोट को इस्तमाल करने के लिए आपको 24 घंटे में एक बार ᴠᴇʀɪғʏ करना होगा। Vᴇʀɪғʏ किए बिना आप मूवीज को डाउनलोड नहीं कर पाएंगें।\n\n<a href=https://t.me/bots_up/76>👉𝗛𝗼𝘄 𝗧𝗼 𝗩𝗲𝗿𝗶𝗳𝘆👈\n\n\n\n</a>",
+                    text="Yᴏᴜ Aʀᴇ Nᴏᴛ Vᴇʀɪғɪᴇᴅ Tᴏᴅᴀʏ. Pʟᴇᴀsᴇ Vᴇʀɪғʏ Aɴᴅ Gᴇᴛ Uɴʟɪᴍɪᴛᴇᴅ ᴀᴄᴄᴇss Fᴏʀ 24 hours.\n\nइस बोट को इस्तमाल करने के लिए आपको 24 घंटे में एक बार ᴠᴇʀɪғʏ करना होगा। Vᴇʀɪғʏ किए बिना आप मूवीज को डाउनलोड नहीं कर पाएंगें।\n\n<a href=https://t.me/A2BTutorial>👉𝗛𝗼𝘄 𝗧𝗼 𝗩𝗲𝗿𝗶𝗳𝘆👈\n\n\n\n</a>",
                     protect_content=True,
                     reply_markup=InlineKeyboardMarkup(btn)
                 )
@@ -394,7 +394,7 @@ async def start(client, message):
                       InlineKeyboardButton('🫨ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
                       InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
                    ],[
-                      InlineKeyboardButton("ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ", url="https://t.me/bots_up")
+                      InlineKeyboardButton("ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ", url="https://t.me/+9NJBWRn9BLliNjcy")
                      ]
                     ]
                 )
@@ -435,7 +435,7 @@ async def start(client, message):
             InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
         ]]
         await message.reply_text(
-            text="Yᴏᴜ Aʀᴇ Nᴏᴛ Vᴇʀɪғɪᴇᴅ Tᴏᴅᴀʏ. Pʟᴇᴀsᴇ Vᴇʀɪғʏ Aɴᴅ Gᴇᴛ Uɴʟɪᴍɪᴛᴇᴅ ᴀᴄᴄᴇss Fᴏʀ 24 hours.\n\nइस बोट को इस्तमाल करने के लिए आपको 24 घंटे में एक बार ᴠᴇʀɪғʏ करना होगा। Vᴇʀɪғʏ किए बिना आप मूवीज को डाउनलोड नहीं कर पाएंगें।\n\n<a href=https://t.me/bots_up/76>👉𝗛𝗼𝘄 𝗧𝗼 𝗩𝗲𝗿𝗶𝗳𝘆👈\n\n\n\n</a>",
+            text="Yᴏᴜ Aʀᴇ Nᴏᴛ Vᴇʀɪғɪᴇᴅ Tᴏᴅᴀʏ. Pʟᴇᴀsᴇ Vᴇʀɪғʏ Aɴᴅ Gᴇᴛ Uɴʟɪᴍɪᴛᴇᴅ ᴀᴄᴄᴇss Fᴏʀ 24 hours.\n\nइस बोट को इस्तमाल करने के लिए आपको 24 घंटे में एक बार ᴠᴇʀɪғʏ करना होगा। Vᴇʀɪғʏ किए बिना आप मूवीज को डाउनलोड नहीं कर पाएंगें।\n\n<a href=https://t.me/A2BTutorial>👉𝗛𝗼𝘄 𝗧𝗼 𝗩𝗲𝗿𝗶𝗳𝘆👈\n\n\n\n</a>",
             protect_content=True,
             reply_markup=InlineKeyboardMarkup(btn)
         )
@@ -451,7 +451,7 @@ async def start(client, message):
               InlineKeyboardButton('🫨ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
               InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
            ],[
-              InlineKeyboardButton("ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ", url="https://t.me/bots_up")
+              InlineKeyboardButton("ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ", url="https://t.me/+9NJBWRn9BLliNjcy")
              ]
             ]
         )
@@ -947,7 +947,7 @@ async def shortlink(bot, message):
         return await message.reply(f"You are anonymous admin. Turn off anonymous admin and try again this command")
     chat_type = message.chat.type
     if chat_type == enums.ChatType.PRIVATE:
-        return await message.reply_text(f"<b>Hey {message.from_user.mention}, This command only works on groups !\n\n<u>Follow These Steps to Connect Shortener:</u>\n\n1. Add Me in Your Group with Full Admin Rights\n\n2. After Adding in Grp, Set your Shortener\n\nSend this command in your group\n\n—> /shortlink ""{your_shortener_website_name} {your_shortener_api}\n\n#Sample:-\n/shortlink omnifly.in.net 1f1da5c9df9a58058672ac8d8134e203b03426a1\n\nThat's it!!! Enjoy Earning Money 💲\n\n[[[ Trusted Earning Site - https://bit.ly/mplaylink ]]]\n\nIf you have any Doubts, Feel Free to Ask me - @Attitude2688\n\n(Puriyala na intha bot la message pannunga - @Attitude2688)</b>")
+        return await message.reply_text(f"<b>Hey {message.from_user.mention}, This command only works on groups !\n\n<u>Follow These Steps to Connect Shortener:</u>\n\n1. Add Me in Your Group with Full Admin Rights\n\n2. After Adding in Grp, Set your Shortener\n\nSend this command in your group\n\n—> /shortlink ""{your_shortener_website_name} {your_shortener_api}\n\n#Sample:-\n/shortlink urlshortx.com 1f1da5c9df9a58058672ac8d8134e203b03426a1\n\nThat's it!!! Enjoy Earning Money 💲\n\n[[[ Trusted Earning Site - urlshortx.com ]]]\n\nIf you have any Doubts, Feel Free to Ask me - @Thenameisravan\n\n(Puriyala na intha bot la message pannunga - @Thenameisravan)</b>")
     elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         grpid = message.chat.id
         title = message.chat.title
@@ -963,7 +963,7 @@ async def shortlink(bot, message):
     try:
         command, shortlink_url, api = data.split(" ")
     except:
-        return await message.reply_text("<b>Command Incomplete :(\n\nGive me a shortener website link and api along with the command !\n\nFormat: <code>/shortlink omnifly.in.net 1f1da5c9df9a58058672ac8d8134e203b03426a1</code></b>")
+        return await message.reply_text("<b>Command Incomplete :(\n\nGive me a shortener website link and api along with the command !\n\nFormat: <code>/shortlink urlshortx.com 1f1da5c9df9a58058672ac8d8134e203b03426a1</code></b>")
     reply = await message.reply_text("<b>Please Wait...</b>")
     shortlink_url = re.sub(r"https?://?", "", shortlink_url)
     shortlink_url = re.sub(r"[:/]", "", shortlink_url)
