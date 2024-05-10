@@ -13,7 +13,7 @@ from Script import script
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
-from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, SUPPORT_CHAT_ID, CUSTOM_FILE_CAPTION, MSG_ALRT, PICS, AUTH_GROUPS, P_TTI_SHOW_OFF, GRP_LNK, CHNL_LNK, NOR_IMG, LOG_CHANNEL, SPELL_IMG, MAX_B_TN, IMDB, \
+from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, SUPPORT_CHAT_ID, CUSTOM_FILE_CAPTION, MSG_ALRT, PICS, AUTH_GROUPS, P_TTI_SHOW_OFF, PAYMENT_QR, GRP_LNK, CHNL_LNK, NOR_IMG, LOG_CHANNEL, SPELL_IMG, MAX_B_TN, IMDB, \
     SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NO_RESULTS_MSG, TUTORIAL, REQST_CHANNEL, IS_TUTORIAL, LANGUAGES, SEASONS, SUPPORT_CHAT, PREMIUM_USER
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto
 from pyrogram import Client, filters, enums
@@ -475,9 +475,18 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     
     
     #     await query.edit_message_reply_markup(reply_markup=InlineKeyboardMarkup(btn))
-    
-    
-    
+
+@Client.on_callback_query()
+async def cb_handler(client: Client, query: CallbackQuery):
+    elif query.data == "Donate":
+        reply_markup = InlineKeyboardMarkup(btn)
+        await query.message.reply_photo(
+            photo=PAYMENT_QR,
+            caption="**💝 Thanks For Showing Interest In Donation\n🎁 If you like our bot feel free to donate any amount 10Rs, 20Rs, 50Rs, 100Rs, etc.\n❣️ Donations are really appreciated it helps in bot development\n👛 You can donate through UPI\n👉 UPI ID: yadavaashish@kotak**",
+            reply_markup=reply_markup
+        )
+        return
+
 @Client.on_callback_query(filters.regex(r"^seasons#"))
 async def seasons_cb_handler(client: Client, query: CallbackQuery):
 
