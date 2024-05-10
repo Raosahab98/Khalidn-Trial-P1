@@ -476,17 +476,6 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     
     #     await query.edit_message_reply_markup(reply_markup=InlineKeyboardMarkup(btn))
 
-@Client.on_callback_query()
-async def cb_handler(client: Client, query: CallbackQuery):
-    elif query.data == "Donate":
-        reply_markup = InlineKeyboardMarkup(btn)
-        await query.message.reply_photo(
-            photo=PAYMENT_QR,
-            caption="**💝 Thanks For Showing Interest In Donation\n🎁 If you like our bot feel free to donate any amount 10Rs, 20Rs, 50Rs, 100Rs, etc.\n❣️ Donations are really appreciated it helps in bot development\n👛 You can donate through UPI\n👉 UPI ID: yadavaashish@kotak**",
-            reply_markup=reply_markup
-        )
-        return
-
 @Client.on_callback_query(filters.regex(r"^seasons#"))
 async def seasons_cb_handler(client: Client, query: CallbackQuery):
 
@@ -651,6 +640,15 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
                 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
+    elif query.data == "Donate":
+        reply_markup = InlineKeyboardMarkup(btn)
+        await query.message.reply_photo(
+            photo=PAYMENT_QR,
+            caption="**💝 Thanks For Showing Interest In Donation\n🎁 If you like our bot feel free to donate any amount 10Rs, 20Rs, 50Rs, 100Rs, etc.\n❣️ Donations are really appreciated it helps in bot development\n👛 You can donate through UPI\n👉 UPI ID: yadavaashish@kotak**",
+            reply_markup=reply_markup
+        )
+        return
+
     # link = await client.create_chat_invite_link(int(REQST_CHANNEL))
     if query.data == "close_data":
         await query.message.delete()
