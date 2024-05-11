@@ -974,7 +974,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start=file_{file_id}")
 
     elif query.data == "Donate":
-        btn.append(
+        btn = (
             [InlineKeyboardButton("⚠️ᴄʟᴏsᴇ / ᴅᴇʟᴇᴛᴇ⚠️", callback_data="close_data")]
         )
         reply_markup = InlineKeyboardMarkup(btn)
