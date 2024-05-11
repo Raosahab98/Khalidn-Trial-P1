@@ -974,6 +974,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start=file_{file_id}")
 
     elif query.data == "Donate":
+        btn = [[            
+            InlineKeyboardButton("✅sᴇɴᴅ ʏᴏᴜʀ ᴘᴀʏᴍᴇɴᴛ ʀᴇᴄᴇɪᴘᴛ ʜᴇʀᴇ✅", user_id=admin)
+        ]
+            for admin in ADMINS
+        ]
+        btn.append(
+            [InlineKeyboardButton("⚠️ᴄʟᴏsᴇ / ᴅᴇʟᴇᴛᴇ⚠️", callback_data="close_data")]
+        )
+        reply_markup = InlineKeyboardMarkup(btn)
         await query.message.reply_photo(
             photo=PAYMENT_QR,
             caption="**💝 Thanks For Showing Interest In Donation\n🎁 If you like our bot feel free to donate any amount 10Rs, 20Rs, 50Rs, 100Rs, etc.\n❣️ Donations are really appreciated it helps in bot development\n👛 You can donate through UPI\n👉 UPI ID: yadavaashish@kotak**",
