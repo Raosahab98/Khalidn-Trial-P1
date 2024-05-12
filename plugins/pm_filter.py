@@ -1766,7 +1766,7 @@ async def auto_filter(client, msg, spoll=False):
             return
         if len(message.text) < 100:
             search = message.text
-            m=await message.reply_text(f"<b><i> 𝖲𝖾𝖺𝗋𝖼𝗁𝗂𝗇𝗀 𝖿𝗈𝗋 '{search}' 🔎</i></b>")
+            m=await message.reply_sticker("CAACAgQAAx0CexfrAAS9ZkAuVJEp16-4r556aQ9Sxh16oUAAAm4PAALh6rFQ2jEHmOgnEaIeBA")
             search = search.lower()
             find = search.split(" ")
             search = ""
@@ -1797,7 +1797,7 @@ async def auto_filter(client, msg, spoll=False):
     else:
         message = msg.message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = spoll
-        m=await message.reply_text(f"<b><i> 𝖲𝖾𝖺𝗋𝖼𝗁𝗂𝗇𝗀 𝖿𝗈𝗋 '{search}' 🔎</i></b>")
+        m=await message.reply_sticker("CAACAgQAAx0CexfrAAS9ZkAuVJEp16-4r556aQ9Sxh16oUAAAm4PAALh6rFQ2jEHmOgnEaIeBA")
         settings = await get_settings(message.chat.id)
         await msg.message.delete()
     # if 'is_shortlink' in settings.keys():
@@ -1953,7 +1953,7 @@ async def auto_filter(client, msg, spoll=False):
     #     except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
     #         pic = imdb.get('poster')
     #         poster = pic.replace('.jpg', "._V1_UX360.jpg")
-    #         #m=await message.reply_text("🔎") 
+    #         #m=await message.reply_sticker("CAACAgQAAx0CexfrAAS9ZkAuVJEp16-4r556aQ9Sxh16oUAAAm4PAALh6rFQ2jEHmOgnEaIeBA")
     #         hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
     #         await m.delete()
     #         try:
@@ -1968,7 +1968,7 @@ async def auto_filter(client, msg, spoll=False):
     #             await message.delete()
     #     except Exception as e:
     #         logger.exception(e)
-    #         #m=await message.reply_text("🔎") 
+    #         #m=await message.reply_sticker("CAACAgQAAx0CexfrAAS9ZkAuVJEp16-4r556aQ9Sxh16oUAAAm4PAALh6rFQ2jEHmOgnEaIeBA")
     #         fek = await message.reply_text(text=cap, reply_markup=InlineKeyboardMarkup(btn))
     #         await m.delete()
     #         try:
