@@ -201,10 +201,7 @@ Tɪᴘ: Sᴇʟᴇᴄᴛ "Lᴀɴɢᴜᴀɢᴇs" ᴏʀ "Sᴇᴀsᴏɴs" Bᴜᴛᴛ
 
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
-    CAPTION = """
- {file_name}
-
-⚙️ sɪᴢᴇ : {file_size}"""
+    CAPTION = """<b><a href=https://telegram.me/MoviesHubFree4You>{file_name} </a></b>"""
 
     IMDB_TEMPLATE_TXT = """
 <b>Query: {query}
