@@ -354,7 +354,8 @@ async def start(client, message):
                     )
                )
             )
-            filesarr.append(msg)
+            filesarr.append(msg)    
+        await asyncio.sleep(600)
         await msg.edit_text("<b>Your All Files/Videos is successfully deleted!!!</b>")
         return    
         
