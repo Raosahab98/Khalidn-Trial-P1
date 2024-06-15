@@ -14,7 +14,7 @@ import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
 from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, SUPPORT_CHAT_ID, CUSTOM_FILE_CAPTION, MSG_ALRT, PICS, AUTH_GROUPS, P_TTI_SHOW_OFF, PAYMENT_QR, GRP_LNK, CHNL_LNK, NOR_IMG, LOG_CHANNEL, SPELL_IMG, MAX_B_TN, IMDB, \
-    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NO_RESULTS_MSG, TUTORIAL, REQST_CHANNEL, IS_TUTORIAL, LANGUAGES, SEASONS, SUPPORT_CHAT, PREMIUM_USER
+    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NO_RESULTS_MSG, TUTORIAL, REQST_CHANNEL, IS_TUTORIAL, LANGUAGES, SEASONS, SUPPORT_CHAT, PREMIUM_USER, STREAM_URL, STREAM_BIN
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
@@ -983,6 +983,41 @@ async def cb_handler(client: Client, query: CallbackQuery):
             caption="**💝 Thanks For Showing Interest In Donation\n🎁 If you like our bot feel free to donate any amount 10Rs, 20Rs, 50Rs, 100Rs, etc.\n❣️ Donations are really appreciated it helps in bot development\n👛 You can donate through UPI\n👉 UPI ID: yadavaashish@kotak**",
             reply_markup=reply_markup
         )
+        return
+
+    elif query.data.startswith("gen_stream_link"):
+        _, file_id = query.data.split(":")
+        try:
+            user_id = query.from_user.id
+            username =  query.from_user.mention 
+            log_msg = await client.send_cached_media(
+                chat_id=int(STREAM_BIN),
+                file_id=file_id,
+            )
+            fileName = {quote_plus(get_name(log_msg))}
+            page_link = f"{STREAM_URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+            stream_link = f"{STREAM_URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+
+            g = await query.message.reply_text("<b>Link Generating...</b>")
+            await asyncio.sleep(1)
+            await g.delete()
+
+            await log_msg.reply_text(
+                text=f"Usᴇʀ ID: {user_id}\n\nUsᴇʀ Nᴀᴍᴇ: {username} 𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞: {fileName}",
+                quote=True,
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Fast Download ⚡", url=stream_link),
+                                                    InlineKeyboardButton('🎥 Stream/Watch online', url=page_link)]]))
+            return await query.message.reply_text(
+                text="<b>Sᴛʀᴇᴀᴍ Lɪɴᴋ Gᴇɴᴇʀᴀᴛᴇᴅ...😁</b>",
+                quote=True,
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Fast Download ⚡", url=stream_link),
+                                                    InlineKeyboardButton('🎥 Stream/Watch online', url=page_link)]]))
+        except Exception as e:
+            print(e)  # print the error message
+            await query.answer(f"☣something went wrong. Check error:\n\n{e}", show_alert=True)
+            return
         return
     
     elif query.data.startswith("checksub"):
