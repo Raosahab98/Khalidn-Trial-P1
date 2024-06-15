@@ -55,7 +55,7 @@ IS_STREAM = bool(STREAM_BIN and STREAM_URL)
 
 # Others
 PAYMENT_QR = environ.get('PAYMENT_QR', 'https://telegra.ph/file/4ac7b5660f01c6b643a59.jpg')
-VERIFY = bool(environ.get('VERIFY', False))
+VERIFY = bool(environ.get('VERIFY', True))
 SHORTLINK_URL = environ.get('SHORTLINK_URL', 'Adcash.in')
 SHORTLINK_API = environ.get('SHORTLINK_API', '029401250e8acaf02d5c8941736c74ff9474ba64')
 SECOND_SHORTLINK_URL = environ.get('SECOND_SHORTLINK_URL', '')
