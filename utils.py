@@ -820,6 +820,20 @@ async def send_all(bot, userid, files, ident, chat_id, user_name, query):
                     ]
                 )
             )'''
+def get_media_from_message(message: "Message"):
+    media_types = (
+        "audio",
+        "document",
+        "photo",
+        "sticker",
+        "animation",
+        "video",
+        "voice",
+        "video_note",
+    )
+    for attr in media_types:
+        if media := getattr(message, attr, None):
+            return media
 
 def get_name(media_msg: Message) -> str:
     media = get_media_from_message(media_msg)
