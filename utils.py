@@ -820,3 +820,12 @@ async def send_all(bot, userid, files, ident, chat_id, user_name, query):
                     ]
                 )
             )'''
+
+def get_name(media_msg: Message) -> str:
+    media = get_media_from_message(media_msg)
+    return getattr(media, "file_name", "None")
+
+def get_hash(media_msg: Message) -> str:
+    media = get_media_from_message(media_msg)
+    return getattr(media, "file_unique_id", "")[:6]
+    
