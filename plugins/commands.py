@@ -355,7 +355,7 @@ async def start(client, message):
                )
             )
             filesarr.append(msg)
-        await k.delete()
+        await sts.delete()
         await k.edit_text("<b>Your All Files/Videos is successfully deleted!!!</b>")
         return    
         
@@ -483,7 +483,7 @@ async def start(client, message):
         InlineKeyboardButton("Get File Again", callback_data=f'delfile#{file_id}')
     ]]
     await asyncio.sleep(600)
-    await k.delete()
+    await sts.delete()
     await k.edit_text("<b>Your File/Video is successfully deleted!!!\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
     return   
 
