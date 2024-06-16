@@ -472,9 +472,10 @@ async def start(client, message):
                     InlineKeyboardMarkup(
                         [
                         [
-                          InlineKeyboardButton('🌈 Wᴀᴛᴄʜ Oɴʟɪɴᴇ / Fᴀꜱᴛ Dᴏᴡɴʟᴏᴀᴅ 🌈', callback_data=f'gen_stream_link:{file_id}'),
+                          InlineKeyboardButton('🌈 Wᴀᴛᴄʜ Oɴʟɪɴᴇ / Fᴀꜱᴛ Dᴏᴡɴʟᴏᴀᴅ 🌈', callback_data=f'gen_stream_link:{file_id}')
+                        ],[
                           InlineKeyboardButton("⚠️ᴄʟᴏsᴇ / ᴅᴇʟᴇᴛᴇ⚠️", callback_data="close_data")
-                         ]
+                        ]
                         ]
                     )
                )
