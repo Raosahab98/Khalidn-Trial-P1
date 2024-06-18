@@ -1010,7 +1010,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Fast Download ⚡", url=stream_link),
-                                                    InlineKeyboardButton('🎥 Stream/Watch online', url=page_link)
+                                                    InlineKeyboardButton("🎥 Stream/Watch online", url=page_link)
                                                    ],[
                                                     InlineKeyboardButton("🧿 Wᴀᴛᴄʜ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ 🖥", web_app=WebAppInfo(url=page_link))
                                                    ],[
@@ -1020,7 +1020,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Fast Download ⚡", url=stream_link),
-                                                    InlineKeyboardButton('🎥 Stream/Watch online', url=page_link)
+                                                    InlineKeyboardButton("🎥 Stream/Watch online", url=page_link)
                                                    ],[
                                                     InlineKeyboardButton("🧿 Wᴀᴛᴄʜ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ 🖥", web_app=WebAppInfo(url=page_link))
                                                    ],[
