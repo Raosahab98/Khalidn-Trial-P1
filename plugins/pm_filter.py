@@ -34,6 +34,7 @@ from database.gfilters_mdb import (
 import logging
 from urllib.parse import quote_plus
 from time import time
+from pyrogram.types import WebAppInfo
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
@@ -1012,6 +1013,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Fast Download ⚡", url=stream_link),
                                                     InlineKeyboardButton("🎥 Stream/Watch online", url=page_link)
                                                    ],[
+                                                    InlineKeyboardButton('🧿 Wᴀᴛᴄʜ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ 🖥', web_app=WebAppInfo(url=stream_link))
+                                                   ],[
                                                     InlineKeyboardButton("⚠️ᴄʟᴏsᴇ / ᴅᴇʟᴇᴛᴇ⚠️", callback_data="close_data")]]))
             return await query.message.reply_text(
                 text="<b>Sᴛʀᴇᴀᴍ Lɪɴᴋ Gᴇɴᴇʀᴀᴛᴇᴅ...😁</b>",
@@ -1019,6 +1022,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Fast Download ⚡", url=stream_link),
                                                     InlineKeyboardButton("🎥 Stream/Watch online", url=page_link)
+                                                   ],[
+                                                    InlineKeyboardButton('🧿 Wᴀᴛᴄʜ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ 🖥', web_app=WebAppInfo(url=stream_link))
                                                    ],[
                                                     InlineKeyboardButton("⚠️ᴄʟᴏsᴇ / ᴅᴇʟᴇᴛᴇ⚠️", callback_data="close_data")]]))
         except Exception as e:
