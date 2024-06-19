@@ -843,6 +843,17 @@ def get_hash(media_msg: Message) -> str:
     media = get_media_from_message(media_msg)
     return getattr(media, "file_unique_id", "")[:6]
 
+def get_status():
+    tz = pytz.timezone('Asia/Colombo')
+    hour = datetime.now(tz).time().hour
+    if 5 <= hour < 12:
+        sts = "ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ"
+    elif 12 <= hour < 18:
+        sts = "ɢᴏᴏᴅ ᴀꜰᴛᴇʀɴᴏᴏɴ"
+    else:
+        sts = "ɢᴏᴏᴅ ᴇᴠᴇɴɪɴɢ"
+    return sts
+
 async def get_seconds(time_string):
     def extract_value_and_unit(ts):
         value = ""
