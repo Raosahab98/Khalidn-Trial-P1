@@ -3,7 +3,7 @@ from asyncio import sleep
 import pytz
 import datetime, time
 import asyncio
-from info import ADMINS, USERNAME, LOG_CHANNEL, QR_CODE
+from info import ADMINS, USERNAME, LOG_CHANNEL, PAYMENT_QR
 from Script import script 
 from utils import get_seconds, get_status, temp
 from database.users_chats_db import db 
