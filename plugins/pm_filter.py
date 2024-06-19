@@ -989,6 +989,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         return
 
     elif query.data.startswith("gen_stream_link"):
+        user_id = query.from_user.id
+        if not await db.has_premium_access(user_id):
+            d=await query.message.reply("<b>💔 ᴛʜɪꜱ ꜰᴇᴀᴛᴜʀᴇ ɪꜱ ᴏɴʟʏ ꜰᴏʀ ʙᴏᴛ ᴘʀᴇᴍɪᴜᴍ ᴜꜱᴇʀꜱ.\n\nɪꜰ ʏᴏᴜ ᴡᴀɴᴛ ʙᴏᴛ ꜱᴜʙꜱᴄʀɪᴘᴛɪᴏɴ ᴛʜᴇɴ ꜱᴇɴᴅ /plan</b>")
+            await asyncio.sleep(120)
+            await d.delete()
+            return
         _, file_id = query.data.split(":")
         try:
             user_id = query.from_user.id
