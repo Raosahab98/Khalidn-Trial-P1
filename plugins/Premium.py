@@ -115,7 +115,7 @@ async def plan(client, message):
     ]]
     await client.send_message(LOG_CHANNEL, log_message)
     r=await message.reply_photo(
-        photo=(QR_CODE),
+        photo=(PAYMENT_QR),
         caption=script.PREMIUM_TEXT, 
         reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(120)
