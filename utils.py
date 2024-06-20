@@ -218,10 +218,6 @@ def get_size(size):
         size /= 1024.0
     return "%.2f %s" % (size, units[i])
 
-def get_name(name):
-    regex = re.sub(r'@\w+', '', name)
-    return regex
-
 def split_list(l, n):
     for i in range(0, len(l), n):
         yield l[i:i + n]  
@@ -242,10 +238,6 @@ def get_file_id(msg: Message):
             if obj:
                 setattr(obj, "message_type", message_type)
                 return obj
-
-def get_hash(media_msg: Message) -> str:
-    media = get_file_id(media_msg)
-    return getattr(media, "file_unique_id", "")[:6]
 
 def extract_user(message: Message) -> Union[int, str]:
     """extracts the user from a message"""
@@ -828,3 +820,11 @@ async def send_all(bot, userid, files, ident, chat_id, user_name, query):
                     ]
                 )
             )'''
+
+def get_name(media_msg: Message) -> str:
+    media = get_media_from_message(media_msg)
+    return getattr(media, "file_name", "None")
+
+def get_hash(media_msg: Message) -> str:
+    media = get_media_from_message(media_msg)
+    return getattr(media, "file_unique_id", "")[:6]
