@@ -218,6 +218,10 @@ def get_size(size):
         size /= 1024.0
     return "%.2f %s" % (size, units[i])
 
+def get_name(name):
+    regex = re.sub(r'@\w+', '', name)
+    return regex
+
 def split_list(l, n):
     for i in range(0, len(l), n):
         yield l[i:i + n]  
