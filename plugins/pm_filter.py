@@ -987,8 +987,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup
         )
         return
-
-     elif query.data.startswith("gen_stream_link"):
+    
+    elif query.data.startswith("gen_stream_link"):
         _, file_id = query.data.split(":")
         try:
             user_id = query.from_user.id
