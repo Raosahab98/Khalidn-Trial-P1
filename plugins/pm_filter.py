@@ -1009,21 +1009,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 text=f"Usᴇʀ ID: {user_id}\n\nUsᴇʀ Nᴀᴍᴇ: {username} 𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞: {fileName}",
                 quote=True,
                 disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Fast Download ⚡️", url=stream_link),
-                                                    InlineKeyboardButton("🎥 Stream/Watch online", url=page_link)
-                                                   ],[
-                                                    InlineKeyboardButton("⚠️ᴄʟᴏsᴇ / ᴅᴇʟᴇᴛᴇ⚠️", callback_data="close_data")]]))
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Fast Download ⚡", url=stream_link),
+                                                    InlineKeyboardButton('🎥 Stream/Watch online', url=page_link)]]))
             return await query.message.reply_text(
                 text="<b>Sᴛʀᴇᴀᴍ Lɪɴᴋ Gᴇɴᴇʀᴀᴛᴇᴅ...😁</b>",
                 quote=True,
                 disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Fast Download ⚡️", url=stream_link),
-                                                    InlineKeyboardButton("🎥 Stream/Watch online", url=page_link)
-                                                   ],[
-                                                    InlineKeyboardButton("⚠️ᴄʟᴏsᴇ / ᴅᴇʟᴇᴛᴇ⚠️", callback_data="close_data")]]))
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Fast Download ⚡", url=stream_link),
+                                                    InlineKeyboardButton('🎥 Stream/Watch online', url=page_link)]]))
         except Exception as e:
             print(e)  # print the error message
-            await query.answer(f"☣️something went wrong. Check error:\n\n{e}", show_alert=True)
+            await query.answer(f"☣something went wrong. Check error:\n\n{e}", show_alert=True)
             return
         return
     
