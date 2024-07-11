@@ -26,6 +26,11 @@ NOR_IMG = environ.get("NOR_IMG", "https://telegra.ph/file/11f7bb889cc949db28786.
 MELCOW_VID = environ.get("MELCOW_VID", "https://te.legra.ph/file/6f55d902f9bf2d0afd4bb.mp4")
 SPELL_IMG = environ.get("SPELL_IMG", "https://te.legra.ph/file/15c1ad448dfe472a5cbb8.jpg")
 
+#stream link shortner
+STREAM_SITE = (environ.get('STREAM_SITE', ''))
+STREAM_API = (environ.get('STREAM_API', ''))
+STREAMHTO = (environ.get('STREAMHTO', ''))
+
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '763351261').split()]
 USERNAME = environ.get('USERNAME', 'https://telegram.me/DOCTORx98')
