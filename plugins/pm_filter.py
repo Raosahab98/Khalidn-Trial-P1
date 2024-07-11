@@ -1038,7 +1038,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Fast Download ⚡", url=stream_link),
-                                                    InlineKeyboardButton('🎥 Stream/Watch online', url=page_link),
+                                                    InlineKeyboardButton('🎥 Stream/Watch online', url=page_link)
+                                                 ],[
                                                     InlineKeyboardButton('❗ʜᴏᴡ ᴛᴏ ᴏᴘᴇɴ ʟɪɴᴋ❗', url=STREAMHTO)]]))
         except Exception as e:
             print(e)  # print the error message
