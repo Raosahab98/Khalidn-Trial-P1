@@ -444,6 +444,7 @@ async def start(client, message):
                 InlineKeyboardButton("Get File Again", callback_data=f'delfile#{file_id}')
             ]]
             await asyncio.sleep(600)
+            await msg.delete()
             await msg.edit_text("<b>Your File/Video is successfully deleted!!!\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
             return
         except:
@@ -493,7 +494,7 @@ async def start(client, message):
     ]]
     await asyncio.sleep(600)
     await msg.delete()
-    await k.edit_text("<b>Your File/Video is successfully deleted!!!\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
+    await msg.edit_text("<b>Your File/Video is successfully deleted!!!\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
     return   
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
