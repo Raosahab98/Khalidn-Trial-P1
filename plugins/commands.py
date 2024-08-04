@@ -191,7 +191,6 @@ async def start(client, message):
                 for x in filesarr:
                     await x.delete()
                 await k.edit_text("<b>Your All Files/Videos is successfully deleted!!!</b>")
-
             
             except Exception as e:
                 logger.warning(e, exc_info=True)
