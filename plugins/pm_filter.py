@@ -983,7 +983,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(btn)
         await query.message.reply_photo(
             photo=PAYMENT_QR,
-            caption="**💝 Thanks For Showing Interest In Donation\n🎁 If you like our bot feel free to donate any amount 10Rs, 20Rs, 50Rs, 100Rs, etc.\n❣️ Donations are really appreciated it helps in bot development\n👛 You can donate through UPI\n👉 UPI ID: yadavaashish@kotak**",
+            caption="**❤️‍🔥 ᴛʜᴀɴᴋs ғᴏʀ sʜᴏᴡɪɴɢ ɪɴᴛᴇʀᴇsᴛ ɪɴ ᴅᴏɴᴀᴛɪᴏɴ.\n🎁 Iғ ʏᴏᴜ ʟɪᴋᴇ ᴏᴜʀ ʙᴏᴛ ғᴇᴇʟ ғʀᴇᴇ ᴛᴏ ᴅᴏɴᴀᴛᴇ ᴀɴʏ ᴀᴍᴏᴜɴᴛ 𝟷𝟶Rs, 𝟸𝟶Rs, 𝟻𝟶Rs, 𝟷𝟶𝟶Rs, ᴇᴛᴄ.\n❣️ ᴅᴏɴᴀᴛɪᴏɴs ᴀʀᴇ ʀᴇᴀʟʟʏ ᴀᴘᴘʀᴇᴄɪᴀᴛᴇᴅ ɪᴛ ʜᴇʟᴘs ɪɴ ʙᴏᴛ ᴅᴇᴠᴇʟᴏᴘᴍᴇɴᴛ.\n👛 ʏᴏᴜ ᴄᴀɴ ᴅᴏɴᴀᴛᴇ ᴛʜʀᴏᴜɢʜ UPI\n❤️‍🔥 UPI ID: yadavaashish@kotak**",
             reply_markup=reply_markup
         )
         return
