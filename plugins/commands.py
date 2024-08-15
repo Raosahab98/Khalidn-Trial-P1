@@ -184,6 +184,7 @@ async def start(client, message):
                           InlineKeyboardButton(" Dᴏɴᴀᴛᴇ Us 🍿 ", callback_data="Donate")
                          ]
                         ]
+                      )
                     )
             except Exception as e:
                 logger.warning(e, exc_info=True)
