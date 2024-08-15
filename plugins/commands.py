@@ -363,6 +363,7 @@ async def start(client, message):
                     )
                )
             )
+            filesarr.append(msg)
     btn = [[
         InlineKeyboardButton("Get File Again", callback_data=f'delfile#{file_id}')
     ]]
