@@ -32,7 +32,7 @@ async def telegraph_upload(bot, update):
     await text.delete()    
     d=await update.reply_photo(
         photo=f'https://graph.org{response[0]}',
-        caption=f"<b>❤️ ʏᴏᴜʀ ᴛᴇʟᴇɢʀᴀᴘʜ ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ</b>\n\n<code>https://graph.org{response[0]}</code>\n\n<b>⭐️ ʙʏ : @MovieVillaYT</b>",       
+        caption=f"<b>❤️ ʏᴏᴜʀ ᴛᴇʟᴇɢʀᴀᴘʜ ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ</b>\n\n<code>https://graph.org{response[0]}</code>\n\n<b>⭐️ ʙʏ : @MoviesHubFree4You</b>",       
         reply_markup=InlineKeyboardMarkup( [[
             InlineKeyboardButton(text="ᴏᴘᴇɴ", url=f"https://graph.org{response[0]}"),
             InlineKeyboardButton(text="sʜᴀʀᴇ", url=f"https://telegram.me/share/url?url=https://graph.org{response[0]}")
