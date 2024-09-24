@@ -36,7 +36,7 @@ async def upload_command(client, message):
         return
 
     if replied.media and hasattr(replied, 'file_size'):
-        if replied.file_size > 763351261:
+        if replied.file_size > 5368701024:
             await message.reply_text("File size is greater than 512 MB.")
             return
 
