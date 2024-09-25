@@ -1,9 +1,6 @@
-#By @Silicon_Bot_Update 
-#Distribute and edit it as your wish but please don't remove credit 😓😓
-#By stealing Credit of Developer you will not become pro so try to give full credit to Developer 🥺🥺🥺
+# © Silicon-Developer
 
-import os
-import requests
+import os, asyncio, requests
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
@@ -23,51 +20,46 @@ def upload_image_requests(image_path):
     except Exception as e:
         print(f"Error during upload: {e}")
         return None
-
-#By @Silicon_Bot_Update 
-#Distribute and edit it as your wish but please don't remove credit 😓😓
-#By stealing Credit of Developer you will not become pro so try to give full credit to Developer 🥺🥺🥺
-
 @Client.on_message(filters.command("upload") & filters.private)
 async def upload_command(client, message):
     replied = message.reply_to_message
     if not replied:
-        await message.reply_text("Reply to a photo or video under 512 MB.")
+        await message.reply_text("⚠️ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇᴅɪᴀ ᴜɴᴅᴇʀ 𝟻 ᴍʙ") 
         return
 
     if replied.media and hasattr(replied, 'file_size'):
-        if replied.file_size > 5368701024:
-            await message.reply_text("File size is greater than 512 MB.")
+        if replied.file_size > 5242880:
+            await message.reply_text("⚠️ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇᴅɪᴀ ᴜɴᴅᴇʀ 𝟻 ᴍʙ")
             return
 
-    silicon_path = await replied.download()
+    rahul = await replied.download()
 
-    uploading_message = await message.reply_text("<code>Uploading...</code>")
+    uploading_message = await message.reply_text("<code>ᴜᴘʟᴏᴀᴅɪɴɢ...</code>")
 
     try:
-        silicon_url = upload_image_requests(silicon_path)
-        if not silicon_url:
+        url = upload_image_requests(rahul)
+        if not url:
             raise Exception("Failed to upload file.")
     except Exception as error:
         await uploading_message.edit_text(f"Upload failed: {error}")
         return
 
     try:
-        os.remove(silicon_path)
+        os.remove(rahul)
     except Exception as error:
         print(f"Error removing file: {error}")
 
-    await uploading_message.edit_text(
-        text=f"<b>Link :-</b>\n\n<code>{silicon_url}</code>",
-        disable_web_page_preview=True,
+    await uploading_message.delete()
+    codexbots=await message.reply_photo(
+        photo=f'{url}',
+        caption=f"<b>ʏᴏᴜʀ ᴄʟᴏᴜᴅ ʟɪɴᴋ ᴄᴏᴍᴘʟᴇᴛᴇᴅ 👇</b>\n\n𝑳𝒊𝒏𝒌 :-\n\n<code>{url}</code>\n\n<b>ᴘᴏᴡᴇʀᴇᴅ ʙʏ - @MoviesHubFree4You</b>",
+        #disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup([[
-            InlineKeyboardButton(text="Open Link", url=silicon_url),
-            InlineKeyboardButton(text="Share Link", url=f"https://telegram.me/share/url?url={silicon_url}")
+            InlineKeyboardButton(text="• ᴏᴘᴇɴ ʟɪɴᴋ •", url=url),
+            InlineKeyboardButton(text="• sʜᴀʀᴇ ʟɪɴᴋ •", url=f"https://telegram.me/share/url?url={url}")
         ], [
-            InlineKeyboardButton(text="Close this menu", callback_data="close_data")
+            InlineKeyboardButton(text="❌   ᴄʟᴏsᴇ   ❌", callback_data="close_data")
         ]])
-    )
-
-#By @Silicon_Bot_Update 
-#Distribute and edit it as your wish but please don't remove credit 😓😓
-#By stealing Credit of Developer you will not become pro so try to give full credit to Developer 🥺🥺🥺
+   )
+    await asyncio.sleep(120)
+    await codexbots.delete()
