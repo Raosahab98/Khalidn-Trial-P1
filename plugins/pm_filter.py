@@ -37,7 +37,7 @@ from time import time
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
-EMOJIS = [ "👀", "❤️", "🔥", "😍", "🎉", "🥰", "😇", "😱" ]
+
 BUTTON = {}
 BUTTONS = {}
 FRESH = {}
