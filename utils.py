@@ -821,6 +821,78 @@ async def send_all(bot, userid, files, ident, chat_id, user_name, query):
                 )
             )'''
 
+async def get_cap(settings, remaining_seconds, files, query, total_results, search, current_page=1):
+    # Aᴅᴅᴇᴅ Bʏ @creatorrio
+    files_per_page = 10  # Number of files per page
+    start_index = (current_page - 1) * files_per_page  # Calculate the start index based on the current page
+    
+    if settings["imdb"]:
+        IMDB_CAP = temp.IMDB_CAP.get(query.from_user.id)
+        if IMDB_CAP:
+            cap = IMDB_CAP
+            cap += "\n\n<b>📚 <u>Your Requested Files</u> 👇\n</b>"
+            for idx, file in enumerate(files[start_index:start_index + files_per_page], start=start_index + 1):
+                cap += (f"<b><a href='https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}'>"
+                        f"[{get_size(file.file_size)}] "
+                        f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n</a></b>")
+        else:
+            imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
+            if imdb:
+                TEMPLATE = script.IMDB_TEMPLATE_TXT
+                cap = TEMPLATE.format(
+                    query=search,
+                    title=imdb['title'],
+                    votes=imdb['votes'],
+                    aka=imdb["aka"],
+                    seasons=imdb["seasons"],
+                    box_office=imdb['box_office'],
+                    localized_title=imdb['localized_title'],
+                    kind=imdb['kind'],
+                    imdb_id=imdb["imdb_id"],
+                    cast=imdb["cast"],
+                    runtime=imdb["runtime"],
+                    countries=imdb["countries"],
+                    certificates=imdb["certificates"],
+                    languages=imdb["languages"],
+                    director=imdb["director"],
+                    writer=imdb["writer"],
+                    producer=imdb["producer"],
+                    composer=imdb["composer"],
+                    cinematographer=imdb["cinematographer"],
+                    music_team=imdb["music_team"],
+                    distributors=imdb["distributors"],
+                    release_date=imdb['release_date'],
+                    year=imdb['year'],
+                    genres=imdb['genres'],
+                    poster=imdb['poster'],
+                    plot=imdb['plot'],
+                    rating=imdb['rating'],
+                    url=imdb['url'],
+                    **locals()
+                )
+                cap += "\n\n<b>📚 <u>Your Requested Files</u> 👇\n\n</b>"
+                for idx, file in enumerate(files[start_index:start_index + files_per_page], start=start_index + 1):
+                    cap += (f"<b>{idx}. <a href='https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}'>"
+                            f"{get_size(file.file_size)} ▷ "
+                            f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n</a></b>")
+            else:
+                cap = (f"<b>🙋‍♂ Hᴇʏ {query.from_user.mention} ♻️ ʜᴇʀᴇ ᴀʀᴇ ᴛʜᴇ ʀᴇꜱᴜʟᴛꜱ ꜰᴏʀ ʏᴏᴜʀ ǫᴜᴇʀʏ"
+                       f"\n☞ {search}</b>")
+                cap += "\n\n<b>📚 Your Requested Files 👇\n\n</b>"
+                for idx, file in enumerate(files[start_index:start_index + files_per_page], start=start_index + 1):
+                    cap += (f"<b>{idx}. <a href='https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}'>"
+                            f"{get_size(file.file_size)} ▷ "
+                            f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n</a></b>")
+    else:
+        cap = (f"<b>🙋‍♂ Hᴇʏ {query.from_user.mention} ♻️ ʜᴇʀᴇ ᴀʀᴇ ᴛʜᴇ ʀᴇꜱᴜʟᴛꜱ ꜰᴏʀ ʏᴏᴜʀ ǫᴜᴇʀʏ"
+               f"\n☞ {search}</b>")
+        cap += "\n\n<b>📚 Your Requested Files 👇\n\n</b>"
+        for idx, file in enumerate(files[start_index:start_index + files_per_page], start=start_index + 1):
+            cap += (f"<b>{idx}. <a href='https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}'>"
+                    f"{get_size(file.file_size)} ▷ "
+                    f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n\n</a></b>")
+    return cap
+
 def get_media_from_message(message: "Message"):
     media_types = (
         "audio",
