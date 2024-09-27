@@ -37,6 +37,7 @@ from time import time
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
+EMOJIS = [ "👀", "❤️", "🔥", "😍", "🎉", "🥰", "😇", "😱" ]
 BUTTON = {}
 BUTTONS = {}
 FRESH = {}
@@ -48,6 +49,7 @@ SPELL_CHECK = {}
 
 @Client.on_message(filters.group | filters.private & filters.text & filters.incoming)
 async def give_filter(client, message):
+    await message.react(emoji=random.choice(EMOJIS))
     if message.chat.id != SUPPORT_CHAT_ID:
         manual = await manual_filters(client, message)
         if manual == False:
