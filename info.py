@@ -58,7 +58,7 @@ IS_STREAM = bool(STREAM_BIN and STREAM_URL)
 WEBSITE_URL_MODE = bool(environ.get('WEBSITE_URL_MODE', True)) # Set True or False
 
 # If Website Url Mode Is True Then Fill All Required Variable, If False Then Don't Fill.
-WEBSITE_URL = environ.get("WEBSITE_URL", "")
+WEBSITE_URL = environ.get("WEBSITE_URL", "https://moviefilez4you.blogspot.com/2024/09/movieshubfree4you.html")
 
 # Others
 PAYMENT_QR = environ.get('PAYMENT_QR', 'https://telegra.ph/file/4ac7b5660f01c6b643a59.jpg')
