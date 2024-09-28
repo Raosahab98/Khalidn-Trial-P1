@@ -500,7 +500,7 @@ async def get_shortlink(chat_id, link, second=False):
         # if parsed_data["status"] == "success":
         #   return parsed_data["link"]
     #method 2
-        url = f'https://{URL}/easy_api'
+        url = f'https://{SHORTLINK_URL}/easy_api'
         params = {
             "key": API,
             "link": link,
@@ -514,7 +514,7 @@ async def get_shortlink(chat_id, link, second=False):
             logger.error(e)
             return link
     else:
-        shortzy = Shortzy(api_key=API, base_site=URL)
+        shortzy = Shortzy(api_key=SHORTLINK_API, base_site=SHORTLINK_URL)
         link = await shortzy.convert(link)
         return link
 
