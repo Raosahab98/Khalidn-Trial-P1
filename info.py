@@ -54,6 +54,12 @@ STREAM_URL = environ.get("STREAM_URL", "linear-darcie-thenameisravan-33c47006.ko
 IS_STREAM = bool(STREAM_BIN and STREAM_URL)
 #Use this feature, if you have deployed file to link bot. paste the app url with stream url and add filter bot as admin in bin channel and add id in stream bin
 
+# Website Info:
+WEBSITE_URL_MODE = bool(environ.get('WEBSITE_URL_MODE', True)) # Set True or False
+
+# If Website Url Mode Is True Then Fill All Required Variable, If False Then Don't Fill.
+WEBSITE_URL = environ.get("WEBSITE_URL", "")
+
 # Others
 PAYMENT_QR = environ.get('PAYMENT_QR', 'https://telegra.ph/file/4ac7b5660f01c6b643a59.jpg')
 VERIFY = bool(environ.get('VERIFY', True))
