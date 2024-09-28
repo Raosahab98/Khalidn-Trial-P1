@@ -1,10 +1,10 @@
 import requests
 import json
 from motor.motor_asyncio import AsyncIOMotorClient
-from config import DB_URI, DB_NAME
+from info import DATABASE_URI, DATABASE_NAME
 
-client = AsyncIOMotorClient(DB_URI)
-db = client[DB_NAME]
+client = AsyncIOMotorClient(DATABASE_URI)
+db = client[DATABASE_NAME]
 col = db["users"]
 
 
