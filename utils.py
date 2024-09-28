@@ -500,7 +500,7 @@ async def get_shortlink(chat_id, link, second=False):
         # if parsed_data["status"] == "success":
         #   return parsed_data["link"]
     #method 2
-        url = f'https://{SHORTLINK_URL}/easy_api'
+        url = f'https://{URL}/easy_api'
         params = {
             "key": API,
             "link": link,
@@ -514,7 +514,7 @@ async def get_shortlink(chat_id, link, second=False):
             logger.error(e)
             return link
     else:
-        shortzy = Shortzy(api_key=SHORTLINK_API, base_site=SHORTLINK_URL)
+        shortzy = Shortzy(api_key=API, base_site=URL)
         link = await shortzy.convert(link)
         return link
 
@@ -632,50 +632,28 @@ async def get_tutorial(chat_id):
     return TUTORIAL_URL
         
 async def get_verify_shorted_link(link):
-    API = SHORTLINK_API
-    URL = SHORTLINK_URL
-    https = link.split(":")[0]
-    if "http" == https:
-        https = "https"
-        link = link.replace("http", https)
-
-    if URL == "api.shareus.in":
-        url = f"https://{URL}/shortLink"
-        params = {"token": API,
-                  "format": "json",
-                  "link": link,
-                  }
+    if SHORTLINK_URL == "api.shareus.io":
+        url = f'https://{SHORTLINK_URL}/easy_api'
+        params = {
+            "key": SHORTLINK_API,
+            "link": link,
+        }
         try:
             async with aiohttp.ClientSession() as session:
                 async with session.get(url, params=params, raise_for_status=True, ssl=False) as response:
-                    data = await response.json(content_type="text/html")
-                    if data["status"] == "success":
-                        return data["shortlink"]
-                    else:
-                        logger.error(f"Error: {data['message']}")
-                        return f'https://{URL}/shortLink?token={API}&format=json&link={link}'
-
+                    data = await response.text()
+                    return data
         except Exception as e:
             logger.error(e)
-            return f'https://{URL}/shortLink?token={API}&format=json&link={link}'
+            return link
     else:
-        url = f'https://{URL}/api'
-        params = {'api': API,
-                  'url': link,
-                  }
-        try:
-            async with aiohttp.ClientSession() as session:
-                async with session.get(url, params=params, raise_for_status=True, ssl=False) as response:
-                    data = await response.json()
-                    if data["status"] == "success":
-                        return data['shortenedUrl']
-                    else:
-                        logger.error(f"Error: {data['message']}")
-                        return f'https://{URL}/api?api={API}&link={link}'
-
-        except Exception as e:
-            logger.error(e)
-            return f'{URL}/api?api={API}&link={link}'
+  #      response = requests.get(f"https://{SHORTLINK_URL}/api?api={SHORTLINK_API}&url={link}")
+ #       data = response.json()
+  #      if data["status"] == "success" or rget.status_code == 200:
+   #         return data["shortenedUrl"]
+        shortzy = Shortzy(api_key=SHORTLINK_API, base_site=SHORTLINK_URL)
+        link = await shortzy.convert(link)
+        return link
 
 async def check_token(bot, userid, token):
     user = await bot.get_users(userid)
