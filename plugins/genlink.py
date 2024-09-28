@@ -3,6 +3,7 @@ from pyrogram import filters, Client, enums
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
 from info import ADMINS, LOG_CHANNEL, FILE_STORE_CHANNEL, PUBLIC_FILE_STORE, WEBSITE_URL, WEBSITE_URL_MODE
 from database.ia_filterdb import unpack_new_file_id
+from plugins.users_api import get_user, get_short_link
 from utils import temp
 import re
 import os
