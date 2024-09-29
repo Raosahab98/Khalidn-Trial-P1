@@ -359,8 +359,6 @@ async def start(client, message):
             await asyncio.sleep(AUTO_DELETE_TIME)
             await msg.delete()
             await msg.edit_text("<b>ʏᴏᴜʀ ᴠɪᴅᴇᴏꜱ / ꜰɪʟᴇꜱ ᴀʀᴇ ᴅᴇʟᴇᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ !!!</b>")
-        except:
-            pass
         return await message.reply('No such file exist.')
         
     elif data.startswith("files"):
