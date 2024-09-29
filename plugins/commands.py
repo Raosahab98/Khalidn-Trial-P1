@@ -353,6 +353,7 @@ async def start(client, message):
                             InlineKeyboardButton('🫨ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}')
                         ]
                     ]
+                  )
                 )
             )
             filesarr.append(msg)
