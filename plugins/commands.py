@@ -338,9 +338,9 @@ async def start(client, message):
                 return
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
-                file_id=file_id,
-                caption=f_caption,
-                protect_content=True if pre == 'filep' else False,
+                file_id=msg.get("file_id"),
+                    caption=f_caption,
+                    protect_content=msg.get('protect', False),
                 reply_markup=(
                     InlineKeyboardMarkup(
                         [
@@ -353,16 +353,22 @@ async def start(client, message):
                   )
                 )
             )
-            if AUTO_DELETE_MODE == True:
+            filesarr.append(msg)
+            except Exception as e:
+                logger.warning(e, exc_info=True)
+                continue
+            await asyncio.sleep(1) 
+        await sts.delete()
+        if AUTO_DELETE_MODE == True:
             k = await client.send_message(chat_id = message.from_user.id, text=f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>{AUTO_DELETE} minutes</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</b>")
             await asyncio.sleep(AUTO_DELETE_TIME)
             for x in filesarr:
                 try:
-                    await g.delete()
+                    await x.delete()
                 except:
                     pass
             await k.edit_text("<b>ʏᴏᴜʀ ᴠɪᴅᴇᴏꜱ / ꜰɪʟᴇꜱ ᴀʀᴇ ᴅᴇʟᴇᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ !!!</b>")
-        return
+         return
         
     elif data.startswith("files"):
         user = message.from_user.id
