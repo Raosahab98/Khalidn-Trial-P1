@@ -190,7 +190,7 @@ async def start(client, message):
             await asyncio.sleep(1) 
         await sts.delete()
         await asyncio.sleep(600)
-            await msg.delete()
+            await k.delete()
             await msg.edit_text("<b>ʏᴏᴜʀ ᴠɪᴅᴇᴏꜱ / ꜰɪʟᴇꜱ ᴀʀᴇ ᴅᴇʟᴇᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ !!!</b>")
         return
         
