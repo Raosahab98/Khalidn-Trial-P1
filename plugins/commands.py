@@ -183,15 +183,11 @@ async def start(client, message):
                         ]
                       )
                     )
-                filesarr.append(msg)
-            except Exception as e:
+                except Exception as e:
                 logger.warning(e, exc_info=True)
                 continue
             await asyncio.sleep(1) 
         await sts.delete()
-        await asyncio.sleep(600)
-            await k.delete()
-            await msg.edit_text("<b>ʏᴏᴜʀ ᴠɪᴅᴇᴏꜱ / ꜰɪʟᴇꜱ ᴀʀᴇ ᴅᴇʟᴇᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ !!!</b>")
         return
         
     
