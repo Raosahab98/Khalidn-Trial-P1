@@ -491,9 +491,8 @@ async def start(client, message):
                         ],[
                           InlineKeyboardButton("⚠️ᴄʟᴏsᴇ / ᴅᴇʟᴇᴛᴇ⚠️", callback_data="close_data")
                         ]
-                        ]
-                    )
-               )
+                    ]
+                )
             )
     btn = [[
         InlineKeyboardButton("Get File Again", callback_data=f'delfile#{file_id}')
