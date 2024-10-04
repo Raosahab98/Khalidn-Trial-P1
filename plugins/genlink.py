@@ -1,3 +1,6 @@
+# Don't Remove Credit Tg - @MoviesHubFree4You
+# Ask Doubt on telegram @DOCTORx98
+
 import re
 from pyrogram import filters, Client, enums
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
@@ -14,12 +17,19 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
+# Don't Remove Credit Tg - @MoviesHubFree4You
+# Ask Doubt on telegram @DOCTORx98
+
 async def allowed(_, __, message):
     if PUBLIC_FILE_STORE:
         return True
     if message.from_user and message.from_user.id in ADMINS:
         return True
     return False
+
+
+# Don't Remove Credit Tg - @MoviesHubFree4You
+# Ask Doubt on telegram @DOCTORx98
 
 @Client.on_message(filters.command(['link', 'plink']) & filters.create(allowed))
 async def gen_link_s(bot, message):
@@ -38,7 +48,7 @@ async def gen_link_s(bot, message):
     user_id = message.from_user.id
     user = await get_user(user_id)
     if WEBSITE_URL_MODE == True:
-        share_link = f"{WEBSITE_URL}?Tech_VJ={outstr}"
+        share_link = f"{WEBSITE_URL}?MF4Y={outstr}"
     else:
         share_link = f"https://t.me/{username}?start={outstr}"
     if user["base_site"] and user["shortener_api"] != None:
@@ -47,7 +57,11 @@ async def gen_link_s(bot, message):
     else:
         await message.reply(f"<b>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:\n\n🔗 ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ :- {share_link}</b>")
     
-    
+
+# Don't Remove Credit Tg - @MoviesHubFree4You
+# Ask Doubt on telegram @DOCTORx98
+
+
 @Client.on_message(filters.command(['batch', 'pbatch']) & filters.create(allowed))
 async def gen_link_batch(bot, message):
     if " " not in message.text:
@@ -136,7 +150,7 @@ async def gen_link_batch(bot, message):
     user_id = message.from_user.id
     user = await get_user(user_id)
     if WEBSITE_URL_MODE == True:
-        share_link = f"{WEBSITE_URL}?Tech_VJ=BATCH-{file_id}"
+        share_link = f"{WEBSITE_URL}?MF4Y=BATCH-{file_id}"
     else:
         share_link = f"https://t.me/{username}?start=BATCH-{file_id}"
     if user["base_site"] and user["shortener_api"] != None:
