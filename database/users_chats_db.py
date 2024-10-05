@@ -9,6 +9,7 @@ class Database:
         self.db = self._client[database_name]
         self.col = self.db.users
         self.grp = self.db.groups
+        self.movies_update_channel = mydb.movies_update_channel
 
 
     def new_user(self, id, name):
@@ -149,5 +150,15 @@ class Database:
 
     async def get_db_size(self):
         return (await self.db.command("dbstats"))['dataSize']
+        
+        
+    async def movies_update_channel_id(self , id=None):
+        if id is None:
+            myLinks = await self.movies_update_channel.find_one({})
+            if myLinks is not None:
+                return myLinks.get("id")
+            else:
+                return None
+        return await self.movies_update_channel.update_one({} , {'$set': {'id': id}} , upsert=True)
 
 db = Database(DATABASE_URI, DATABASE_NAME)
