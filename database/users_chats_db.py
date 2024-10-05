@@ -166,4 +166,4 @@ class Database:
                 return None
         return await self.movies_update_channel.update_one({} , {'$set': {'id': id}} , upsert=True)
 
-db = Database(DATABASE_URI, DATABASE_NAME)
+db = Database()
