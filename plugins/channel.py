@@ -1,8 +1,3 @@
-# Credit - JISSHU BOTS
-# Modified By NBBotz
-# Some Codes Are Taken From A GitHub Repository And We Forgot His Name
-# Base Code Biisal
-
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from info import CHANNELS, MOVIE_UPDATE_CHANNEL, ADMINS , LOG_CHANNEL
@@ -12,8 +7,6 @@ import re
 from database.users_chats_db import db
 
 processed_movies = set()
-media_filter = filters.document | filters.video
-
 media_filter = filters.document | filters.video
 
 @Client.on_message(filters.chat(CHANNELS) & media_filter)
