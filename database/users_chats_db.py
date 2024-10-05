@@ -12,8 +12,7 @@ class Database:
         self.col = self.db.users
         self.grp = self.db.groups
 
-    class Database:
-    default = SETTINGS.copy()
+    
     def __init__(self):
         self.movies_update_channel = mydb.movies_update_channel
 
