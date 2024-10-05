@@ -15,6 +15,7 @@ class Database:
     
     def __init__(self):
         self.col = mydb.users
+        self.grp = mydb.groups
         self.movies_update_channel = mydb.movies_update_channel
 
 
