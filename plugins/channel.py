@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from info import CHANNELS, MOVIE_UPDATE_CHANNEL, ADMINS
 from database.ia_filterdb import save_file, unpack_new_file_id
-from utils import get_poster, temp , formate_file_name
+from utils import get_poster, temp
 import re
 from Script import script
 from database.users_chats_db import db
