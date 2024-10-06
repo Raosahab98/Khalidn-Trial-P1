@@ -3,6 +3,7 @@ import logging
 import random
 import asyncio
 from Script import script
+from pm_filter import auto_filter
 from pyrogram import Client, filters, enums
 from plugins.users_api import get_user, update_user_info
 from pyrogram.errors import ChatAdminRequired, FloodWait
@@ -112,6 +113,14 @@ async def start(client, message):
             parse_mode=enums.ParseMode.HTML
         )
         return
+
+    if len(message.command) == 2 and message.command[1].startswith('getfile'):
+        searches = message.command[1].split("-", 1)[1] 
+        search = searches.replace('-',' ')
+        message.text = search 
+        await auto_filter(client, message) 
+        return
+    
     data = message.command[1]
     try:
         pre, file_id = data.split('_', 1)
@@ -1112,6 +1121,28 @@ async def settutorial(bot, message):
         await reply.edit_text(f"<b>Successfully Added Tutorial\n\nHere is your tutorial link for your group {title} - <code>{tutorial}</code></b>")
     else:
         return await message.reply("<b>You entered Incorrect Format\n\nFormat: /set_tutorial your tutorial link</b>")
+
+@Client.on_message(filters.private & filters.command("movie_update_on"))
+async def set_send_movie_on(client, message):
+    user_id = message.from_user.id
+    bot_id = client.me.id
+    if user_id not in ADMINS:
+        await message.delete()
+        return
+    
+    await db.update_send_movie_update_status(bot_id, enable=True)
+    await message.reply_text("<b><i>✅️ Send Movie Upeate Enabled.</i></b>")
+
+@Client.on_message(filters.private & filters.command("movie_update_off"))
+async def set_send_movie_update_off(client, message):
+    user_id = message.from_user.id
+    bot_id = client.me.id
+    if user_id not in ADMINS:
+        await message.delete()
+        return
+    
+    await db.update_send_movie_update_status(bot_id, enable=False)
+    await message.reply_text("<b><i>❌️ Send Movie Update Disabled.</i></b>")
         
 @Client.on_message(filters.command("restart") & filters.user(ADMINS))
 async def stop_button(bot, message):
