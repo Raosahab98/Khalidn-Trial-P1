@@ -26,10 +26,9 @@ async def media(bot, message):
 
     media.file_type = file_type
     media.caption = message.caption
-    success_sts = await save_file(media)
-    if success_sts == 'suc' and await db.get_send_movie_update_status(bot_id):
-        file_id, file_ref = unpack_new_file_id(media.file_id)
-        await send_movie_updates(bot, file_name=media.file_name, caption=media.caption, file_id=file_id)
+    success, status_code = await save_file(media)
+    if success and status_code == 1 and await db.get_send_movie_update_status(bot_id):
+        await send_movie_updates(bot, file_name=media.file_name, caption=media.caption)
 
 
 async def get_imdb(file_name):
@@ -51,7 +50,7 @@ async def check_qualities(text, qualities: list):
     quality = ", ".join(quality)
     return quality[:-2] if quality.endswith(", ") else quality
 
-async def send_movie_updates(bot, file_name, caption, file_id):
+async def send_movie_updates(bot, file_name, caption):
     try:
         year_match = re.search(r"\b(19|20)\d{2}\b", caption)
         year = year_match.group(0) if year_match else None      
