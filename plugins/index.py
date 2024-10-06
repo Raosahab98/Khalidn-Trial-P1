@@ -133,6 +133,7 @@ async def set_skip_number(bot, message):
     else:
         await message.reply("Give me a skip number")
 
+
 async def index_files_to_db(lst_msg_id, chat, msg, bot):
     total_files = 0
     duplicate = 0
@@ -170,15 +171,13 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
                     continue
                 media.file_type = message.media.value
                 media.caption = message.caption
-                sts = await save_file(media)
-                if sts == 'suc':
+                aynav, vnay = await save_file(media)
+                if aynav:
                     total_files += 1
-                elif sts == 'dup':
+                elif vnay == 0:
                     duplicate += 1
-                elif sts == 'err':
+                elif vnay == 2:
                     errors += 1
-        except FloodWait as e:
-            await asyncio.sleep(e.x)
         except Exception as e:
             logger.exception(e)
             await msg.edit(f'Error: {e}')
