@@ -1,8 +1,6 @@
 # https://github.com/odysseusmax/animated-lamp/blob/master/bot/database/database.py
-from motor.motor_asyncio import AsyncIOMotorClient
-from info import DATABASE_NAME, DATABASE_URI, IMDB, IMDB_TEMPLATE, MELCOW_NEW_USERS, P_TTI_SHOW_OFF, SINGLE_BUTTON, SPELL_CHECK_REPLY, PROTECT_CONTENT, AUTO_DELETE, MAX_BTN, AUTO_FFILTER, SHORTLINK_API, SHORTLINK_URL, IS_SHORTLINK, TUTORIAL, IS_TUTORIAL, MOVIE_UPDATE_CHANNEL
-client = AsyncIOMotorClient(DATABASE_URI)
-mydb = client[DATABASE_NAME]
+import motor.motor_asyncio
+from info import DATABASE_NAME, DATABASE_URI, IS_SEND_MOVIE_UPDATE, IMDB, IMDB_TEMPLATE, MELCOW_NEW_USERS, P_TTI_SHOW_OFF, SINGLE_BUTTON, SPELL_CHECK_REPLY, PROTECT_CONTENT, AUTO_DELETE, MAX_BTN, AUTO_FFILTER, SHORTLINK_API, SHORTLINK_URL, IS_SHORTLINK, TUTORIAL, IS_TUTORIAL
 
 class Database:
     
@@ -11,12 +9,7 @@ class Database:
         self.db = self._client[database_name]
         self.col = self.db.users
         self.grp = self.db.groups
-
-    
-    def __init__(self):
-        self.col = mydb.users
-        self.grp = mydb.groups
-        self.movies_update_channel = mydb.movies_update_channel
+        self.botcol = self.db.nbbotz
 
 
     def new_user(self, id, name):
@@ -103,6 +96,20 @@ class Database:
         return False if not chat else chat.get('chat_status')
     
 
+    async def get_send_movie_update_status(self, bot_id):
+        bot = await self.botcol.find_one({'id': bot_id})
+        if bot and bot.get('movie_update_feature'):
+            return bot['movie_update_feature']
+        else:
+            return IS_SEND_MOVIE_UPDATE
+
+    async def update_send_movie_update_status(self, bot_id, enable):
+        bot = await self.botcol.find_one({'id': int(bot_id)})
+        if bot:
+            await self.botcol.update_one({'id': int(bot_id)}, {'$set': {'movie_update_feature': enable}})
+        else:
+            await self.botcol.insert_one({'id': int(bot_id), 'movie_update_feature': enable})            
+            
     async def re_enable_chat(self, id):
         chat_status=dict(
             is_disabled=False,
@@ -157,15 +164,6 @@ class Database:
 
     async def get_db_size(self):
         return (await self.db.command("dbstats"))['dataSize']
-        
-        
-    async def movies_update_channel_id(self , id=None):
-        if id is None:
-            myLinks = await self.movies_update_channel.find_one({})
-            if myLinks is not None:
-                return myLinks.get("id")
-            else:
-                return None
-        return await self.movies_update_channel.update_one({} , {'$set': {'id': id}} , upsert=True)
 
-db = Database()
+db = Database(DATABASE_URI, DATABASE_NAME)
+
