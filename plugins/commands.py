@@ -3,7 +3,6 @@ import logging
 import random
 import asyncio
 from Script import script
-from .pm_filter import auto_filter
 from pyrogram import Client, filters, enums
 from plugins.users_api import get_user, update_user_info
 from pyrogram.errors import ChatAdminRequired, FloodWait
@@ -114,12 +113,6 @@ async def start(client, message):
         )
         return
 
-    if len(message.command) == 2 and message.command[1].startswith('getfile'):
-        searches = message.command[1].split("-", 1)[1] 
-        search = searches.replace('-',' ')
-        message.text = search 
-        await auto_filter(client, message) 
-        return
     
     data = message.command[1]
     try:
