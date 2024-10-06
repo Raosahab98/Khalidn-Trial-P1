@@ -9,7 +9,6 @@ class Database:
         self.db = self._client[database_name]
         self.col = self.db.users
         self.grp = self.db.groups
-        self.botcol = self.db.nbbotz
 
 
     def new_user(self, id, name):
@@ -96,20 +95,6 @@ class Database:
         return False if not chat else chat.get('chat_status')
     
 
-    async def get_send_movie_update_status(self, bot_id):
-        bot = await self.botcol.find_one({'id': bot_id})
-        if bot and bot.get('movie_update_feature'):
-            return bot['movie_update_feature']
-        else:
-            return IS_SEND_MOVIE_UPDATE
-
-    async def update_send_movie_update_status(self, bot_id, enable):
-        bot = await self.botcol.find_one({'id': int(bot_id)})
-        if bot:
-            await self.botcol.update_one({'id': int(bot_id)}, {'$set': {'movie_update_feature': enable}})
-        else:
-            await self.botcol.insert_one({'id': int(bot_id), 'movie_update_feature': enable})            
-            
     async def re_enable_chat(self, id):
         chat_status=dict(
             is_disabled=False,
@@ -166,4 +151,3 @@ class Database:
         return (await self.db.command("dbstats"))['dataSize']
 
 db = Database(DATABASE_URI, DATABASE_NAME)
-
