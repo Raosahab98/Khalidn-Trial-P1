@@ -198,4 +198,4 @@ class Database:
         
         return post_mode
 
-db = Database(DATABASE_URI, DATABASE_NAME)
+db = Database()
