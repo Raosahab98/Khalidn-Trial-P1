@@ -20,13 +20,6 @@ class Database:
         self.movies_update_channel = mydb.movies_update_channel
         self.update_post_mode = mydb.update_post_mode
         
-    
-    def __init__(self, uri, database_name):
-        self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
-        self.db = self._client[database_name]
-        self.col = self.db.users
-        self.grp = self.db.groups
-
 
     def new_user(self, id, name):
         return dict(
