@@ -100,7 +100,7 @@ PROTECT_CONTENT = is_enabled((environ.get('PROTECT_CONTENT', "False")), False)
 PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "True")), True)
 
 SETTINGS = {
-            'spell_check': SPELL_CHECK,
+            'spell_check': SPELL_CHECK_REPLY,
             'auto_filter': AUTO_FILTER,
             'file_secure': PROTECT_CONTENT,
             'auto_delete': AUTO_DELETE,
