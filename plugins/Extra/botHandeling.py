@@ -1,6 +1,6 @@
 from pyrogram import Client, filters , enums
 from pyrogram.types import InlineKeyboardMarkup , InlineKeyboardButton
-from info import ADMINS , START_IMG
+from info import ADMINS, NOR_IMG
 import re
 from database.users_chats_db import db
 @Client.on_message(filters.command("post_mode") & filters.user(ADMINS))
@@ -16,7 +16,7 @@ async def update_post_mode(client, message):
         InlineKeyboardButton(f"{'ᴀʟʟ' if post_mode.get('all_files_post_mode', True) else 'ɴᴇᴡ'} ғɪʟᴇs", callback_data="all_files_post_mode"),
     ]]
         reply_markup = InlineKeyboardMarkup(btn)
-        await message.reply_photo(caption="<b>sᴇʟᴇᴄᴛ ᴘᴏsᴛ ᴍᴏᴅᴇ ғʀᴏᴍ ʙᴇʟᴏᴡ :</b>", photo=START_IMG, reply_markup=reply_markup)
+        await message.reply_photo(caption="<b>sᴇʟᴇᴄᴛ ᴘᴏsᴛ ᴍᴏᴅᴇ ғʀᴏᴍ ʙᴇʟᴏᴡ :</b>", photo=NOR_IMG, reply_markup=reply_markup)
     except Exception as e:
         print('Err in update_post_mode', e)
 
