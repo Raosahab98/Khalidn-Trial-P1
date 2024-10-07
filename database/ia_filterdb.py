@@ -13,7 +13,6 @@ from utils import get_settings, save_group_settings
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-
 client = AsyncIOMotorClient(DATABASE_URI)
 db = client[DATABASE_NAME]
 instance = Instance.from_db(db)
@@ -31,7 +30,8 @@ class Media(Document):
     class Meta:
         indexes = ('$file_name', )
         collection_name = COLLECTION_NAME
-
+async def get_files_db_size():
+    return (await mydb.command("dbstats"))['dataSize']
 
 async def save_file(media):
     """Save file in database"""
