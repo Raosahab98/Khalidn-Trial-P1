@@ -52,6 +52,9 @@ class temp(object):
     GETALL = {}
     SHORT = {}
     SETTINGS = {}
+def formate_file_name(file_name):
+    file_name = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file_name.split()))
+    return file_name
 
 async def is_subscribed(bot, query):
     try:
