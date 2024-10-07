@@ -103,7 +103,7 @@ SETTINGS = {
             'spell_check': SPELL_CHECK_REPLY,
             'template': IMDB_TEMPLATE,
             'imdb': IMDB, 
-            'is_verify': IS_VERIFY,
+            'is_verify': VERIFY,
     }
 DEFAULT_POST_MODE = {
     'singel_post_mode' : False,
