@@ -1,8 +1,25 @@
 # https://github.com/odysseusmax/animated-lamp/blob/master/bot/database/database.py
-import motor.motor_asyncio
-from info import DATABASE_NAME, DATABASE_URI, IMDB, IMDB_TEMPLATE, MELCOW_NEW_USERS, P_TTI_SHOW_OFF, SINGLE_BUTTON, SPELL_CHECK_REPLY, PROTECT_CONTENT, AUTO_DELETE, MAX_BTN, AUTO_FFILTER, SHORTLINK_API, SHORTLINK_URL, IS_SHORTLINK, TUTORIAL, IS_TUTORIAL
+from motor.motor_asyncio import AsyncIOMotorClient
+from info import SETTINGS ,DATABASE_NAME, DATABASE_URI, IMDB, IMDB_TEMPLATE, MELCOW_NEW_USERS, P_TTI_SHOW_OFF, SINGLE_BUTTON, SPELL_CHECK_REPLY, PROTECT_CONTENT, AUTO_DELETE, MAX_BTN, AUTO_FFILTER, SHORTLINK_API, SHORTLINK_URL, IS_SHORTLINK, TUTORIAL, IS_TUTORIAL
+client = AsyncIOMotorClient(DATABASE_URI)
+mydb = client[DATABASE_NAME]
 
 class Database:
+    default = SETTINGS.copy()
+    def __init__(self):
+        self.col = mydb.users
+        self.grp = mydb.groups
+        self.misc = mydb.misc
+        self.verify_id = mydb.verify_id
+        self.users = mydb.uersz
+        self.req = mydb.requests
+        self.mGrp = mydb.mGrp
+        self.pmMode = mydb.pmMode
+        self.stream_link = mydb.stream_link
+        self.grp_and_ids = fsubs.grp_and_ids
+        self.movies_update_channel = mydb.movies_update_channel
+        self.update_post_mode = mydb.update_post_mode
+        
     
     def __init__(self, uri, database_name):
         self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
@@ -149,5 +166,36 @@ class Database:
 
     async def get_db_size(self):
         return (await self.db.command("dbstats"))['dataSize']
+
+    async def movies_update_channel_id(self , id=None):
+        if id is None:
+            myLinks = await self.movies_update_channel.find_one({})
+            if myLinks is not None:
+                return myLinks.get("id")
+            else:
+                return None
+        return await self.movies_update_channel.update_one({} , {'$set': {'id': id}} , upsert=True)
+    async def del_movies_channel_id(self):
+        try: 
+            isDeleted = await self.movies_update_channel.delete_one({})
+            if isDeleted.deleted_count > 0:
+                return True
+            else:
+                return False
+        except Exception as e:
+            print(f"Got err in db set : {e}")
+            return False
+    async def update_post_mode_handle(self, index=0):
+        post_mode = await self.update_post_mode.find_one({})
+        if post_mode is None:
+            post_mode = DEFAULT_POST_MODE
+        if index == 1:
+            post_mode["singel_post_mode"] = not post_mode.get("singel_post_mode", True)
+        elif index == 2:
+            post_mode["all_files_post_mode"] = not post_mode.get("all_files_post_mode", True)
+        
+        await self.update_post_mode.update_one({}, {"$set": post_mode}, upsert=True)
+        
+        return post_mode
 
 db = Database(DATABASE_URI, DATABASE_NAME)
