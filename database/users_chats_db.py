@@ -16,7 +16,6 @@ class Database:
         self.mGrp = mydb.mGrp
         self.pmMode = mydb.pmMode
         self.stream_link = mydb.stream_link
-        self.grp_and_ids = fsubs.grp_and_ids
         self.movies_update_channel = mydb.movies_update_channel
         self.update_post_mode = mydb.update_post_mode
         
